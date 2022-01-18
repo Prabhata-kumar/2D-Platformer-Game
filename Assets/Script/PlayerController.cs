@@ -17,10 +17,21 @@ public class PlayerController : MonoBehaviour
     public void Update()
     {
         //PlayerFlip();
-        float speed = Input.GetAxisRaw("Horizontal");
-        animator.SetFloat("speed", Mathf.Abs(speed));
-        Vector3 playerFlip = transform.localScale;
+        //running
+        float speed = Input.GetAxisRaw("Horizontal");//it desplay the the speed of a player = 1
+        animator.SetFloat("speed", Mathf.Abs(speed));//in it real value
+
+        Vector3 playerFlip = transform.localScale;//it is take the value from -x site it halp toward left site
         if (speed < 0) playerFlip.x = -1f * Mathf.Abs(playerFlip.x);
+        else if (speed > 0) playerFlip.x = Mathf.Abs(playerFlip.x);
+
+        transform.localScale = playerFlip;
+
+        //jump
+       //bool jump = Input.GetAxisRaw("Vertical");
+        //Input.GetKeyDown(KeyCode.Space);
+         Input.GetAxisRaw("Vertical");
+        Input.GetKeyDown(KeyCode.Space);
     }
 
     /*
@@ -28,7 +39,7 @@ public class PlayerController : MonoBehaviour
     {
         float speed = Input.GetAxisRaw("Horizontal");
         animator.SetFloat("speed", Mathf.Abs(speed));
-        Vector3 playerFlip = transform.localScale;
+        Vector3 playerFlip = transform.localScale; 
         if (speed < 0) playerFlip.x = -1f * Mathf.Abs(playerFlip.x);
         else if (speed > 0) playerFlip.x = Mathf.Abs(playerFlip.x);
         transform.localScale = playerFlip;
