@@ -9,7 +9,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: jump
+    m_ConditionEvent: Jump
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 3704724939838823010}
@@ -34,7 +34,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: jump
+    m_ConditionEvent: Jump
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: speed
@@ -90,7 +90,7 @@ AnimatorStateTransition:
     m_ConditionEvent: speed
     m_EventTreshold: 0.5
   - m_ConditionMode: 2
-    m_ConditionEvent: jump
+    m_ConditionEvent: Jump
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7877204809611812148}
@@ -142,7 +142,7 @@ AnimatorController:
   m_Name: Player
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: jump
+  - m_Name: Jump
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -150,7 +150,7 @@ AnimatorController:
     m_Controller: {fileID: 0}
   - m_Name: speed
     m_Type: 1
-    m_DefaultFloat: 0
+    m_DefaultFloat: 10
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
@@ -218,7 +218,7 @@ AnimatorStateTransition:
     m_ConditionEvent: speed
     m_EventTreshold: 0.5
   - m_ConditionMode: 1
-    m_ConditionEvent: jump
+    m_ConditionEvent: Jump
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2274454645160091450}
