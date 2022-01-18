@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Animator animator;
-    float speed;
+
     bool crouch;
     // private void Awake()
     // {
@@ -14,17 +14,20 @@ public class PlayerController : MonoBehaviour
     //   private void OnCollisionEnter2D(Collision2D collision){
     //     Debug.Log("Collision:" + collision.gameObject.name);
     //   }
-    void Update()
+    public void Update()
     {
-        PlayerFlip();
-
+        //PlayerFlip();
+        float speed = Input.GetAxisRaw("Horizontal");
+        animator.SetFloat("speed", Mathf.Abs(speed));
+        Vector3 playerFlip = transform.localScale;
+        if (speed < 0) playerFlip.x = -1f * Mathf.Abs(playerFlip.x);
     }
 
-
+    /*
     void PlayerFlip()
     {
-        speed = Input.GetAxisRaw("Horizontal");
-        animator.SetFloat("Speed", Mathf.Abs(speed));
+        float speed = Input.GetAxisRaw("Horizontal");
+        animator.SetFloat("speed", Mathf.Abs(speed));
         Vector3 playerFlip = transform.localScale;
         if (speed < 0) playerFlip.x = -1f * Mathf.Abs(playerFlip.x);
         else if (speed > 0) playerFlip.x = Mathf.Abs(playerFlip.x);
@@ -37,6 +40,6 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("crouch", crouch);
     }
 
-
+    */
 
 }
