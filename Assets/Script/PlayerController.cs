@@ -7,7 +7,10 @@ public class PlayerController : MonoBehaviour
 {
     public Animator animator;
     public float speed;
-   
+    public float Jump; 
+    public bool crouch;
+  
+    
     public void Update()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
@@ -15,15 +18,17 @@ public class PlayerController : MonoBehaviour
 
 
         MoveCharacter(horizontal, vertical);
-        PlayMovementAnimation(horizontal, vertical); 
+        PlayMovementAnimation(horizontal, vertical);
+        PlayerCrouch();
     }
 
     private void MoveCharacter(float horizontal, float vertical)
     {//move the character in horizontaly
-     
-        Vector3 position  = transform.position;
-        position.x = position.x + horizontal * speed * Time.deltaTime; 
-        transform.position=position;
+       
+            Vector3 position = transform.position;
+            position.x = position.x + horizontal * speed * Time.deltaTime;
+            transform.position = position;
+        
     }
 
     private void PlayMovementAnimation(float horizontal, float vertical)
@@ -50,7 +55,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Jump", false);
         }
 
-
+/*
         //Crouch
         bool Crouch;
         if (vertical < 0)
@@ -60,6 +65,21 @@ public class PlayerController : MonoBehaviour
         else
         {
             animator.SetBool("s", false);
+        }*/
+    }
+    bool PlayerCrouch()
+    {
+        if (Input.GetKey(KeyCode.S))
+        {
+            crouch = true;
+            animator.SetBool("Crouch",crouch);
+            return true;
+        }
+        else
+        {
+            crouch = false;
+            animator.SetBool("Crouch",crouch);
+            return false;
         }
     }
 
