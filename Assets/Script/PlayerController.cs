@@ -14,12 +14,15 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb2d;
     public GameOver GameOver;
     public ScoreController ScoreController;
-    public void PixkUpKey()
-    {
-        Debug.Log("player pick up the key");
+   
+    public void PickUpKey()
+    { 
+        ScoreController.IncreaseScore(10);
     }
 
 
+
+  
     public void Update()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
@@ -31,10 +34,7 @@ public class PlayerController : MonoBehaviour
         PlayerCrouch();
     }
 
-    public void PickUpKey()
-    {
-        ScoreController.IncreaseScore(10);
-    }
+   
 
     private void MoveCharacter(float horizontal)
     {
@@ -67,9 +67,10 @@ public class PlayerController : MonoBehaviour
         transform.localScale = Scale;
 
     }
+    //jump
     void PlayerJump(float vertical)
     {
-        if ((vertical > 0) && (isGrounded = true))
+        if (vertical > 0 && (isGrounded = true))
         {
             Vector3 position = transform.position;
             position.y = position.y + vertical * Jump * Time.deltaTime;
@@ -82,7 +83,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Jump", false);
         }
     }
-
+    //crouch
     bool PlayerCrouch()//it is for crouch
     {
         if (Input.GetKey(KeyCode.S))
@@ -98,13 +99,17 @@ public class PlayerController : MonoBehaviour
             return false;
         }
     }
-
+    //key destroy
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("key"))
         {
+            PickUpKey();
             Destroy(other.gameObject);
         }
     }
 
+  
+
+  
 }
