@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public float Jump;
     public bool crouch;
-    public bool isGrounded = false;
+    public bool isGrounded = true;
     private Rigidbody2D rb2d;
     public GameOver GameOver;
     public ScoreController ScoreController;
