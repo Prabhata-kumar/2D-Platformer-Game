@@ -8,11 +8,11 @@ public class GameOver : MonoBehaviour
 {
     public gameOverController GameOverController;
     public GameObject playerDiedText;
-    public Button buttonRestart;
+    public Button lobbyButton;
 
     public void Awake()
     {
-        buttonRestart.onClick.AddListener(RelodeLevel);
+        lobbyButton.onClick.AddListener(RelodeLevel);
     }
     private void Start()
     {
@@ -32,7 +32,7 @@ public class GameOver : MonoBehaviour
         }
     }
 
-    private void RelodeLevel()
+    private void RelodeLevel()  
     {
         SceneManager.LoadScene(0);
     }

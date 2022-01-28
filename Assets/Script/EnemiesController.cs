@@ -1,27 +1,24 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemiesController : MonoBehaviour
 {
-   
     public float speed;
-    public float distance;
     private bool movingRight = true;
-
-    public Transform GroundDetection;
-
+    public Transform groundDetection;
 
     private void Update()
     {
-        transform.position = (Vector2.right*speed*Time.deltaTime);
-        RaycastHit2D groundInfo = Physics2D.Raycast(GroundDetection.position, Vector2.down, distance);
+        transform.Translate(Vector2.right * speed * Time.deltaTime);
+        RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, 2f);
         if (groundInfo.collider == false)
         {
-            if(movingRight== true)
+            if (movingRight == true)
             {
                 transform.eulerAngles = new Vector3(0, -180, 0);
-                movingRight = false; 
+                movingRight = false;
             }
             else
             {
@@ -29,6 +26,7 @@ public class EnemiesController : MonoBehaviour
                 movingRight = true;
             }
         }
-
     }
+
+   
 }
