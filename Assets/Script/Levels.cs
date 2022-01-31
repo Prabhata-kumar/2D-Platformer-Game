@@ -1,13 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Levels 
+public enum LevelStatus
 {
-
-    public static string Level1 = "Level 1";
-    public static string Level2 = "Level 2";
-    public static string Level3 = "Level 3"; 
-    public static string Level4 = "Level 4";
-
+    locked,//0
+    Unlocked,//1
+    Complet//2
 }
