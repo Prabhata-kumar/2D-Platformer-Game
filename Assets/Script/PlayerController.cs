@@ -15,10 +15,7 @@ public class PlayerController : MonoBehaviour
     public GameOver GameOver;
     public ScoreController ScoreController;
    
-    public void PickUpKey()
-    { 
-        ScoreController.IncreaseScore(10);
-    }
+  
 
 
 
@@ -104,12 +101,14 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("key"))
         {
-            PickUpKey();
+            PickUpScore();
             Destroy(other.gameObject);
         }
     }
+    public void PickUpScore()
+    {
+        ScoreController.IncreaseScore(10);
+    }
 
-  
 
-  
 }
